@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Verstappen | Formula 1 World Champion</title>
+    <meta name="description" content="Official portfolio of Max Verstappen — 4x Formula 1 World Champion, Red Bull Racing driver, and one of the greatest in motorsport history.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-number">
+                <span class="loader-1">1</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill" id="loader-fill"></div>
+            </div>
+            <p class="loader-text">LOADING EXPERIENCE</p>
+        </div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">
+            <span class="nav-logo-number">1</span>
+            <span class="nav-logo-name">MV</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active" data-section="hero">Home</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+            <li><a href="#stats" class="nav-link" data-section="stats">Stats</a></li>
+            <li><a href="#career" class="nav-link" data-section="career">Career</a></li>
+            <li><a href="#gallery" class="nav-link" data-section="gallery">Gallery</a></li>
+            <li><a href="#videos" class="nav-link" data-section="videos">Videos</a></li>
+        </ul>
+        <div class="nav-hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu-links">
+            <li><a href="#hero" class="mobile-link">Home</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#stats" class="mobile-link">Stats</a></li>
+            <li><a href="#career" class="mobile-link">Career</a></li>
+            <li><a href="#gallery" class="mobile-link">Gallery</a></li>
+            <li><a href="#videos" class="mobile-link">Videos</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-video">
+            <video autoplay muted loop playsinline id="hero-video">
+                <source src="https://cdn.coverr.co/videos/coverr-a-car-racing-on-a-track-4889/1080p.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-line"></span>
+                <span>4× WORLD CHAMPION</span>
+                <span class="hero-badge-line"></span>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-title-line" data-text="MAX">MAX</span>
+                <span class="hero-title-line hero-title-last" data-text="VERSTAPPEN">VERSTAPPEN</span>
+            </h1>
+            <p class="hero-subtitle">Redefining the limits of Formula 1</p>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">
+                    <span>Explore Journey</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#videos" class="btn btn-outline">
+                    <span>Watch Highlights</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="hero-scroll-line"></div>
+            <span>SCROLL</span>
+        </div>
+        <div class="hero-race-number">33</div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <div class="about-image-frame">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=800&fit=crop" alt="Racing" class="about-image">
+                        <div class="about-image-overlay"></div>
+                    </div>
+                    <div class="about-image-badge">
+                        <span class="about-badge-number">01</span>
+                        <span class="about-badge-text">SINCE 2015</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <div class="section-label">
+                        <span class="section-label-line"></span>
+                        <span>ABOUT</span>
+                    </div>
+                    <h2 class="section-title">The <span class="text-gradient">Youngest</span> Ever Champion</h2>
+                    <p class="about-text">Max Emilian Verstappen, born September 30, 1997, in Hasselt, Belgium, is a Dutch racing prodigy who has redefined Formula 1. Son of former F1 driver Jos Verstappen, Max was destined for greatness from the start.</p>
+                    <p class="about-text">Making his F1 debut at just 17 years old with Toro Rosso in 2015, he became the youngest driver ever to compete in Formula 1. His promotion to Red Bull Racing in 2016 was spectacular — he won his very first race with the team at the Spanish Grand Prix, becoming the youngest race winner in F1 history at 18 years and 228 days.</p>
+                    <p class="about-text">With 4 consecutive World Championship titles (2021–2024), 63+ race wins, and records that continue to fall, Verstappen is widely regarded as one of the most talented and dominant drivers in the history of motorsport.</p>
+                    <div class="about-details">
+                        <div class="about-detail">
+                            <span class="about-detail-label">Nationality</span>
+                            <span class="about-detail-value">Dutch 🇳🇱</span>
+                        </div>
+                        <div class="about-detail">
+                            <span class="about-detail-label">Team</span>
+                            <span class="about-detail-value">Red Bull Racing</span>
+                        </div>
+                        <div class="about-detail">
+                            <span class="about-detail-label">Car Number</span>
+                            <span class="about-detail-value">#1</span>
+                        </div>
+                        <div class="about-detail">
+                            <span class="about-detail-label">Born</span>
+                            <span class="about-detail-value">30 Sept 1997</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats" id="stats">
+        <div class="stats-bg-particles" id="stats-particles"></div>
+        <div class="section-container">
+            <div class="section-label center">
+                <span class="section-label-line"></span>
+                <span>CAREER NUMBERS</span>
+                <span class="section-label-line"></span>
+            </div>
+            <h2 class="section-title center">Domination in <span class="text-gradient">Numbers</span></h2>
+            <div class="stats-grid">
+                <div class="stat-card" data-count="4" data-suffix="×">
+                    <div class="stat-card-glow"></div>
+                    <div class="stat-number"><span class="counter">0</span>×</div>
+                    <div class="stat-label">World Champion</div>
+                    <div class="stat-detail">2021 • 2022 • 2023 • 2024</div>
+                </div>
+                <div class="stat-card" data-count="63" data-suffix="+">
+                    <div class="stat-card-glow"></div>
+                    <div class="stat-number"><span class="counter">0</span>+</div>
+                    <div class="stat-label">Race Victories</div>
+                    <div class="stat-detail">And counting...</div>
+                </div>
+                <div class="stat-card" data-count="40" data-suffix="+">
+                    <div class="stat-card-glow"></div>
+                    <div class="stat-number"><span class="counter">0</span>+</div>
+                    <div class="stat-label">Pole Positions</div>
+                    <div class="stat-detail">Qualifying mastery</div>
+                </div>
+                <div class="stat-card" data-count="110" data-suffix="+">
+                    <div class="stat-card-glow"></div>
+                    <div class="stat-number"><span class="counter">0</span>+</div>
+                    <div class="stat-label">Podium Finishes</div>
+                    <div class="stat-detail">Consistent excellence</div>
+                </div>
+                <div class="stat-card" data-count="19" data-suffix="">
+                    <div class="stat-card-glow"></div>
+                    <div class="stat-number"><span class="counter">0</span></div>
+                    <div class="stat-label">Wins in 2023</div>
+                    <div class="stat-detail">All-time season record</div>
+                </div>
+                <div class="stat-card" data-count="33" data-suffix="">
+                    <div class="stat-card-glow"></div>
+                    <div class="stat-number"><span class="counter">0</span></div>
+                    <div class="stat-label">Fastest Laps</div>
+                    <div class="stat-detail">Pure speed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline -->
+    <section class="section career" id="career">
+        <div class="section-container">
+            <div class="section-label center">
+                <span class="section-label-line"></span>
+                <span>MILESTONES</span>
+                <span class="section-label-line"></span>
+            </div>
+            <h2 class="section-title center">The Road to <span class="text-gradient">Glory</span></h2>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2015</span>
+                        <h3 class="timeline-heading">F1 Debut</h3>
+                        <p>Became the youngest ever F1 driver at 17, racing for Scuderia Toro Rosso at the Australian Grand Prix.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2016</span>
+                        <h3 class="timeline-heading">First Victory</h3>
+                        <p>Won his debut race for Red Bull Racing at the Spanish Grand Prix — the youngest F1 race winner in history at 18 years old.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2021</span>
+                        <h3 class="timeline-heading">1st World Championship</h3>
+                        <p>Won the most dramatic championship battle in F1 history, overtaking Lewis Hamilton on the final lap of the final race in Abu Dhabi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2022</span>
+                        <h3 class="timeline-heading">2nd World Championship</h3>
+                        <p>Dominated the new regulation era with 15 wins out of 22 races, clinching the title at the Japanese Grand Prix.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2023</span>
+                        <h3 class="timeline-heading">Record-Breaking Season</h3>
+                        <p>Set the all-time record with 19 wins in a single season, winning 3rd consecutive championship. The most dominant campaign in F1 history.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2024</span>
+                        <h3 class="timeline-heading">4th World Championship</h3>
+                        <p>Claimed a 4th consecutive title, cementing his legacy as one of F1's all-time greats alongside Schumacher, Hamilton, Fangio, and Prost.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-year">2025+</span>
+                        <h3 class="timeline-heading">The Legend Continues</h3>
+                        <p>With no signs of slowing down, Verstappen continues his pursuit of even more records and championships in Formula 1.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="section-container">
+            <div class="section-label center">
+                <span class="section-label-line"></span>
+                <span>GALLERY</span>
+                <span class="section-label-line"></span>
+            </div>
+            <h2 class="section-title center">Iconic <span class="text-gradient">Moments</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item-large">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&h=600&fit=crop" alt="Race Car" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-item-tag">SPEED</span>
+                        <h3>Born to Race</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541348263662-e068662d82af?w=600&h=400&fit=crop" alt="Racing" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-item-tag">PRECISION</span>
+                        <h3>Track Mastery</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504257365157-1496a50d48f2?w=600&h=400&fit=crop" alt="Night Race" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-item-tag">LIGHTS</span>
+                        <h3>Night Battles</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551522435-a13afa10f103?w=600&h=400&fit=crop" alt="Victory" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-item-tag">GLORY</span>
+                        <h3>Victory Lane</h3>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-large">
+                    <img src="https://images.unsplash.com/photo-1532906619279-a4b7267faa61?w=800&h=600&fit=crop" alt="Track" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-item-tag">CHAMPION</span>
+                        <h3>Relentless Pursuit</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558981852-426c6c22a060?w=600&h=400&fit=crop" alt="Motorsport" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-item-tag">ADRENALINE</span>
+                        <h3>Full Throttle</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="section videos" id="videos">
+        <div class="section-container">
+            <div class="section-label center">
+                <span class="section-label-line"></span>
+                <span>HIGHLIGHTS</span>
+                <span class="section-label-line"></span>
+            </div>
+            <h2 class="section-title center">Epic <span class="text-gradient">Moments</span></h2>
+            <div class="videos-grid">
+                <div class="video-card video-card-featured">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/OG1FosTQzWE" title="Max Verstappen 2023 Season Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag">2023 SEASON</span>
+                        <h3>Record-Breaking Dominance</h3>
+                        <p>Relive Max's historic 2023 season with 19 wins — the most ever in a single F1 campaign.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/fXLxOGwBXoI" title="Max Verstappen Best Overtakes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag">BEST MOMENTS</span>
+                        <h3>Incredible Overtakes</h3>
+                        <p>Max's most breathtaking overtaking maneuvers throughout his career.</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ka4m3qOxQZY" title="Abu Dhabi 2021 Final Lap" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-tag">ABU DHABI 2021</span>
+                        <h3>The Last Lap</h3>
+                        <p>The most dramatic championship-deciding moment in F1 history.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="section quote-section">
+        <div class="quote-bg">
+            <img src="https://images.unsplash.com/photo-1504257365157-1496a50d48f2?w=1920&h=800&fit=crop" alt="Racing Background">
+            <div class="quote-overlay"></div>
+        </div>
+        <div class="section-container">
+            <blockquote class="quote">
+                <svg class="quote-icon" width="60" height="60" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
+                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+                </svg>
+                <p class="quote-text">I'm not here to finish second. I'm here to win.</p>
+                <cite class="quote-author">— Max Verstappen</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-number">1</span>
+                    <span class="footer-logo-name">MAX VERSTAPPEN</span>
+                </div>
+                <p class="footer-tagline">4× Formula 1 World Champion</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/maxverstappen1/" target="_blank" class="social-link" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a href="https://twitter.com/Max33Verstappen" target="_blank" class="social-link" aria-label="X / Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@MaxVerstappen" target="_blank" class="social-link" aria-label="YouTube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.verstappen.com/" target="_blank" class="social-link" aria-label="Website">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Max Verstappen Fan Portfolio. Built with passion for F1.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
